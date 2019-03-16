@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:recyclerview-v7:28.0.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/877eebe686b0232eba259c73fa77d30e/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/fb3223624f7e910569fc2ce7aabe01ca/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/877eebe686b0232eba259c73fa77d30e/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/877eebe686b0232eba259c73fa77d30e/res" />
+      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/fb3223624f7e910569fc2ce7aabe01ca/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/fb3223624f7e910569fc2ce7aabe01ca/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

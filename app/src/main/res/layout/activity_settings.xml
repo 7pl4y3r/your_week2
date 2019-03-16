@@ -19,7 +19,7 @@
             android:textSize="36sp"
             android:textColor="?attr/app_text"
             android:layout_gravity="center"
-            android:layout_marginTop="48dp"/>
+            android:layout_marginTop="64dp"/>
 
     <Button
             android:id="@+id/btSettingsTheme"
@@ -29,7 +29,7 @@
             android:textSize="24sp"
             android:textAlignment="viewStart"
             android:textColor="?attr/app_button_text_color"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="48dp"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:background="?attr/app_button"/>
@@ -48,18 +48,5 @@
             android:background="?attr/app_button"/>
 
     </LinearLayout>
-
-    <Button
-            android:id="@+id/btExitSettings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="4dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:text="Exit"
-            android:textSize="24sp"
-            android:textColor="?attr/app_button_text_color"
-            android:background="?attr/app_button"/>
 
 </RelativeLayout>

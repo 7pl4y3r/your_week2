@@ -13,7 +13,7 @@
             android:layout_width="256dp"
             android:layout_height="96dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="64dp"
             android:text="Formats"
             android:textSize="36sp"
             android:textColor="?attr/app_text"
@@ -23,7 +23,7 @@
             android:id="@+id/card_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="8dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_below="@+id/tv_theme"
@@ -177,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="2dp"
-                android:text="Change formats"
+                android:text="Save"
                 android:background="?attr/app_button"
                 android:textColor="?attr/app_button_text_color"/>
 

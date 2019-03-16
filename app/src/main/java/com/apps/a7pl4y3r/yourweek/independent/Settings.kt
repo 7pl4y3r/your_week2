@@ -24,8 +24,6 @@ class Settings : AppCompatActivity() {
             startActivity(Intent(this, SettingsFormats::class.java))
         }
 
-        btExitSettings.setOnClickListener { finish() }
-
     }
 
     override fun onResume() {
