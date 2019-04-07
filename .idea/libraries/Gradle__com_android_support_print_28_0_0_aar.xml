@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:print:28.0.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/ce899884c99265051e5a514284d9a40d/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/ad7b6e7c7eab25d1aa5294a073f42419/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/ce899884c99265051e5a514284d9a40d/res" />
-      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/ce899884c99265051e5a514284d9a40d/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/ad7b6e7c7eab25d1aa5294a073f42419/res" />
+      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/ad7b6e7c7eab25d1aa5294a073f42419/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

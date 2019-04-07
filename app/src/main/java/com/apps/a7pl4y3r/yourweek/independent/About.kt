@@ -2,6 +2,8 @@ package com.apps.a7pl4y3r.yourweek.independent
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import com.apps.a7pl4y3r.yourweek.R
 
 class About : AppCompatActivity() {
@@ -11,6 +13,9 @@ class About : AppCompatActivity() {
         setAppTheme(this)
         setContentView(R.layout.activity_about)
         setActionBar()
+
+
+
     }
 
     private fun setActionBar() {

@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:transition:28.0.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/270f7fccec31d22f441caa61d6580bf2/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/dafe7607f7f6b7964dbfc4b2afe0fe24/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/270f7fccec31d22f441caa61d6580bf2/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/270f7fccec31d22f441caa61d6580bf2/res" />
+      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/dafe7607f7f6b7964dbfc4b2afe0fe24/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/dafe7607f7f6b7964dbfc4b2afe0fe24/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

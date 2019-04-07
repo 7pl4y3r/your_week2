@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:support-compat:28.0.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/34c6b568907f25225b809261bc9d0857/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a4bc643496ae7dfb6674c2131ae9c477/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/34c6b568907f25225b809261bc9d0857/res" />
-      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/34c6b568907f25225b809261bc9d0857/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a4bc643496ae7dfb6674c2131ae9c477/res" />
+      <root url="jar://$PROJECT_DIR$/../../AndroidStudioProjects/YourWeek/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a4bc643496ae7dfb6674c2131ae9c477/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
