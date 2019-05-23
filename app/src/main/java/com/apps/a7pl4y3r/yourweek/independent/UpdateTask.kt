@@ -2,22 +2,30 @@ package com.apps.a7pl4y3r.yourweek.independent
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.CardView
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Daydb
+import com.apps.a7pl4y3r.yourweek.databases.Task
 import com.apps.a7pl4y3r.yourweek.helpers.RecyclerViewAdapter
 import com.example.alin.yourweek.helpers.ItemOfRV
 
 import kotlinx.android.synthetic.main.activity_update_task.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class UpdateTask : AppCompatActivity() {
 
+
     private var delData = false
     private val idList = mutableListOf<Int>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,12 +34,22 @@ class UpdateTask : AppCompatActivity() {
         setSupportActionBar(toolbarEditTasks)
         setData()
 
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            val roundBackground = getButtonDrawable(this)
+            btExit.background = roundBackground
+            btDeletion.background = roundBackground
+
+        }
+
         btExit.setOnClickListener {
             getSharedPreferences(settTaskWasAdded, Context.MODE_PRIVATE).edit().putBoolean(valueSettTaskWasAdded, true).apply()
             finish()
         }
 
         btDeletion.setOnClickListener {
+
 
             if (!delData) {
 
@@ -45,8 +63,11 @@ class UpdateTask : AppCompatActivity() {
                 btDeletion.text = "Delete"
                 deleteData()
                 toastMessage(this, "Data deleted!", false)
+                getSharedPreferences(settTaskWasAdded, Context.MODE_PRIVATE).edit().putBoolean(valueSettTaskWasAdded, true).apply()
+                finish()
 
             }
+
         }
     }
 
@@ -112,6 +133,7 @@ class UpdateTask : AppCompatActivity() {
             recyclerUpdateTasks.adapter = mAdapter
 
             mAdapter.setOnItemClickListener(object : RecyclerViewAdapter.OnItemClickListener {
+
                 override fun onItemClick(position: Int, card: CardView) {
 
                     if (delData) {
@@ -133,31 +155,29 @@ class UpdateTask : AppCompatActivity() {
             })
 
 
-            /*textView.setOnClickListener {
+            ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT,
+                ItemTouchHelper.DOWN or ItemTouchHelper.UP) {
 
-                if (delData) {
+                override fun onMove(recyclerView: RecyclerView, oldHolder: RecyclerView.ViewHolder, newHolder: RecyclerView.ViewHolder): Boolean {
 
-                   if (textView.currentTextColor == ContextCompat.getColor(this, android.R.color.holo_red_light)) {
-                       textView.setTextColor(ContextCompat.getColorStateList(this, R.color.greyText))
-                        idList.remove(id)
+                    val oldPosition = oldHolder.adapterPosition
+                    val newPosition = newHolder.adapterPosition
 
-                   } else {
+                    Collections.swap(itemList, oldPosition, newPosition)
+                    mAdapter.notifyItemMoved(oldPosition, newPosition)
 
-                       textView.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_light))
-                       idList.add(id)
-                   }
-
-                    //
-                } else {
-
-                    startActivity(
-                        Intent(this, EditTask::class.java)
-                            .putExtra("DAYID", dayId)
-                            .putExtra("TASKID", id)
-                    )
+                    return true
                 }
-            }*/
+
+                override fun onSwiped(holder: RecyclerView.ViewHolder, p1: Int) {
+
+
+
+                }
+            }).attachToRecyclerView(recyclerUpdateTasks)
+
 
          }
+
         }
     }

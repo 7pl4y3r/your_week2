@@ -1,12 +1,15 @@
 package com.apps.a7pl4y3r.yourweek.independent
 
 import android.content.Context
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.widget.RadioButton
 import android.widget.Toast
 import com.apps.a7pl4y3r.yourweek.R
 import kotlinx.android.synthetic.main.activity_settings_formats.*
+import kotlin.math.round
 
 class SettingsFormats : AppCompatActivity() {
 
@@ -16,7 +19,16 @@ class SettingsFormats : AppCompatActivity() {
         setContentView(R.layout.activity_settings_formats)
         setDateFormat()
         setHourFormat()
-        setNumOfDays()
+        //setNumOfDays()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            val roundBackground = getButtonDrawable(this)
+            btCancel.background = roundBackground
+            btSaveFormats.background = roundBackground
+
+        }
+
 
         btCancel.setOnClickListener {
             finish()
@@ -26,10 +38,11 @@ class SettingsFormats : AppCompatActivity() {
 
             saveDateFormat()
             saveHourFormat()
-            saveDaysInWeek()
+            //saveDaysInWeek()
             finish()
         }
     }
+
 
     private fun setDateFormat() {
 
@@ -49,13 +62,13 @@ class SettingsFormats : AppCompatActivity() {
         }
     }
 
-    private fun setNumOfDays() {
+   /* private fun setNumOfDays() {
         val sharedPreferences = getSharedPreferences(settNumOfDays, Context.MODE_PRIVATE)
         when(sharedPreferences.getBoolean(valueSettNumOfDays, false)){
             false -> rbFive.isChecked = true
             true -> rbSeven.isChecked = true
         }
-    }
+    }*/
 
     private fun saveDateFormat() {
 
@@ -90,7 +103,7 @@ class SettingsFormats : AppCompatActivity() {
 
     }
 
-    private fun saveDaysInWeek() {
+   /* private fun saveDaysInWeek() {
 
         val editor = getSharedPreferences(settNumOfDays, Context.MODE_PRIVATE).edit()
         val radioButton = findViewById<RadioButton>(rgDaysInWeek.checkedRadioButtonId)
@@ -101,6 +114,6 @@ class SettingsFormats : AppCompatActivity() {
 
         editor.apply()
         Toast.makeText(this, "Number of days in Your Week was changed", Toast.LENGTH_SHORT).show()
-    }
+    }*/
 
 }

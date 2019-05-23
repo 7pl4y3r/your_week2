@@ -38,6 +38,7 @@
             android:textSize="24sp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:textAlignment="viewStart"
             android:textColorHint="?attr/app_hint"
             android:textColor="?attr/app_text"/>
 
@@ -49,8 +50,7 @@
             android:textColor="?attr/app_text"
             android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
-            android:textAlignment="viewStart"
-            android:textSize="18sp"/>
+            android:textSize="20sp"/>
 
         <!--
 
@@ -68,14 +68,14 @@
 
         <TextView
             android:id="@+id/tvChosenEndTime"
-            android:layout_width="170dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No chosen end time"
             android:textColor="?attr/app_text"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:layout_marginStart="10dp"
             android:textAlignment="viewStart"
-            android:textSize="18sp"/>
+            android:textSize="20sp"/>
 
         <!--
 

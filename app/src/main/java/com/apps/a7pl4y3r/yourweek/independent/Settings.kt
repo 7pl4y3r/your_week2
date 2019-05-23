@@ -2,6 +2,7 @@ package com.apps.a7pl4y3r.yourweek.independent
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.apps.a7pl4y3r.yourweek.R
@@ -15,6 +16,15 @@ class Settings : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setAppTheme(this)
         setContentView(R.layout.activity_settings)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            val roundBackground = getButtonDrawable(this)
+            btSettingsTheme.background = roundBackground
+            btSettingsFormats.background = roundBackground
+
+        }
+
 
         btSettingsTheme.setOnClickListener {
             startActivity(Intent(this, SettingTheme::class.java))

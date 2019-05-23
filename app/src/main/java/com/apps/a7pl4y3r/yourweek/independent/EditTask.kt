@@ -2,6 +2,7 @@ package com.apps.a7pl4y3r.yourweek.independent
 
 import android.app.TimePickerDialog
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TimePicker
@@ -24,6 +25,7 @@ class EditTask : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
         setAppTheme(this)
         setContentView(R.layout.activity_add)
         setData()
+
 
         tvChosenStartTime.setOnClickListener {
             timePickerId = 1

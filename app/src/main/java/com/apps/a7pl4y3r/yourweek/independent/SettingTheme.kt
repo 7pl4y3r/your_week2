@@ -2,12 +2,15 @@ package com.apps.a7pl4y3r.yourweek.independent
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.Toast
 import com.apps.a7pl4y3r.yourweek.R
 import kotlinx.android.synthetic.main.activity_setting_theme.*
+import kotlinx.android.synthetic.main.activity_setting_theme.btCancel
+import kotlinx.android.synthetic.main.activity_settings_formats.*
 
 class SettingTheme : AppCompatActivity() {
 
@@ -17,10 +20,19 @@ class SettingTheme : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setAppTheme()
         setContentView(R.layout.activity_setting_theme)
-        setSwitch()
+        //setSwitch()
         setCheckedRadioButton()
 
-        switchThemes.setOnClickListener {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            val roundBackground = getButtonDrawable(this)
+            btCancel.background = roundBackground
+            btSaveTheme.background = roundBackground
+
+        }
+
+        /*switchThemes.setOnClickListener {
 
             if(switchThemes.isChecked) {
                 getSharedPreferences(setSwitchTheme, Context.MODE_PRIVATE)
@@ -39,7 +51,7 @@ class SettingTheme : AppCompatActivity() {
 
                 Toast.makeText(this, "Switch is off", Toast.LENGTH_SHORT).show()
             }
-        }
+        }*/
 
         btCancel.setOnClickListener {
             finish()
@@ -84,10 +96,10 @@ class SettingTheme : AppCompatActivity() {
         }
     }
 
-    private fun setSwitch() {
+    /*private fun setSwitch() {
         switchThemes.isChecked = getSharedPreferences(setSwitchTheme, Context.MODE_PRIVATE)
             .getBoolean(valSetSwitchTheme, false)
-    }
+    }*/
 
     private fun setCheckedRadioButton() {
 
@@ -131,7 +143,6 @@ class SettingTheme : AppCompatActivity() {
                 editorTheme.putBoolean(valueSettChangedTheme,true)
                 editor.apply()
                 editorTheme.apply()
-                Toast.makeText(this, "This theme might not look good!!!", Toast.LENGTH_LONG).show()
             }
             "Grass green" -> {
                 editor.putInt(valueSettTheme,3)
