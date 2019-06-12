@@ -13,6 +13,7 @@ private const val Col3 = "EndTimeHour"
 private const val Col4 = "EndTimeMinute"
 private const val Col5 = "Task"
 
+
 class Daydb(context: Context, private val nameOfDb: String) : SQLiteOpenHelper(context, nameOfDb, null, 1) {
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -25,28 +26,28 @@ class Daydb(context: Context, private val nameOfDb: String) : SQLiteOpenHelper(c
         onCreate(db)
     }
 
-    fun insertData(startTimeHour: String?, startTimeMinute: String?, endTimeHour: String?, endTimeMinute: String?, task: String?): Boolean {
+    fun insertData(task: Task): Boolean {
 
         val contentValues = ContentValues()
-        contentValues.put(Col1,startTimeHour)
-        contentValues.put(Col2,startTimeMinute)
-        contentValues.put(Col3,endTimeHour)
-        contentValues.put(Col4,endTimeMinute)
-        contentValues.put(Col5,task)
+        contentValues.put(Col1, task.startHour)
+        contentValues.put(Col2, task.startMinute)
+        contentValues.put(Col3, task.endHour)
+        contentValues.put(Col4, task.endMinute)
+        contentValues.put(Col5, task.task)
 
         return this.writableDatabase.insert(nameOfDb, null, contentValues) != -1L
     }
 
     fun getData(): Cursor = this.writableDatabase.rawQuery("select * from $nameOfDb",null)
 
-    fun updateData(id: String, startTimeHour: String, startTimeMinute: String, endTimeHour: String, endTimeMinute: String, task: String): Boolean {
+    fun updateData(id: String, task: Task): Boolean {
 
         val contentValues = ContentValues()
-        contentValues.put(Col1,startTimeHour)
-        contentValues.put(Col2,startTimeMinute)
-        contentValues.put(Col3,endTimeHour)
-        contentValues.put(Col4,endTimeMinute)
-        contentValues.put(Col5,task)
+        contentValues.put(Col1, task.startHour)
+        contentValues.put(Col2, task.startMinute)
+        contentValues.put(Col3, task.endHour)
+        contentValues.put(Col4, task.endMinute)
+        contentValues.put(Col5, task.task)
 
         this.writableDatabase.update(nameOfDb,contentValues, "ID = ?", arrayOf(id))
 

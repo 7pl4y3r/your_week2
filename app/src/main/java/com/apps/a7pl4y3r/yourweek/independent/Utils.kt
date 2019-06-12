@@ -21,6 +21,10 @@ fun setAppTheme(context: Context) {
             4 -> context.setTheme(R.style.MarsRedTheme)
             //AmoledDarkTheme
             5 -> context.setTheme(R.style.AMOLEDDark)
+            //ImperialPurple
+            6 -> context.setTheme(R.style.ImperialPurple)
+            //OrangeBrick
+            7 -> context.setTheme(R.style.OrangeBrick)
     }
 }
 
@@ -33,6 +37,8 @@ fun getButtonDrawable(context: Context): Drawable? = when (context.getSharedPref
     3 -> context.getDrawable(R.drawable.round_button_green)
     4 -> context.getDrawable(R.drawable.round_button_red)
     5 -> context.getDrawable(R.drawable.round_button_blue_dark)
+    6 -> context.getDrawable(R.drawable.round_button_purple)
+    7 -> context.getDrawable(R.drawable.round_button_orange)
 
     else -> context.getDrawable(R.drawable.round_button_blue)
 

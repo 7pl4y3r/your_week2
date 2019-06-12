@@ -83,6 +83,22 @@
                         android:textSize="20sp"
                         android:textColor="?attr/app_text"/>
 
+                <RadioButton
+                        android:id="@+id/rbImperialPurple"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Imperial Purple"
+                        android:textSize="20sp"
+                        android:textColor="?attr/app_text"/>
+
+                <RadioButton
+                        android:id="@+id/rbOrangeBrick"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Orange Brick"
+                        android:textSize="20sp"
+                        android:textColor="?attr/app_text"/>
+
             </RadioGroup>
 
         </LinearLayout>

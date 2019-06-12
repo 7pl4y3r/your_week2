@@ -93,6 +93,16 @@ class SettingTheme : AppCompatActivity() {
                 setTheme(R.style.AMOLEDDark)
                 theme = "AMOLEDDark"
             }
+            //ImperialPurple
+            6 -> {
+            setTheme(R.style.ImperialPurple)
+            theme = "ImperialPurple"
+            }
+            //OrangeBrick
+            7 -> {
+                setTheme(R.style.OrangeBrick)
+                theme = "OrangeBrick"
+            }
         }
     }
 
@@ -116,6 +126,10 @@ class SettingTheme : AppCompatActivity() {
             4 -> rbMarsRedTheme.isChecked = true
             //AmoledDarkTheme
             5 -> rbAmoledDark.isChecked = true
+            //Imperial Purple
+            6 -> rbImperialPurple.isChecked = true
+            //OrangeBrick
+            7 -> rbOrangeBrick.isChecked = true
         }
     }
 
@@ -123,6 +137,7 @@ class SettingTheme : AppCompatActivity() {
 
         val radioButtonId = rgTheme.checkedRadioButtonId
         val radioButton = findViewById<RadioButton>(radioButtonId)
+
         val sharedPreferences = getSharedPreferences(settTheme, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         val sharedPreferencesTheme = getSharedPreferences(SettChangedTheme, Context.MODE_PRIVATE)
@@ -133,32 +148,44 @@ class SettingTheme : AppCompatActivity() {
         when(radioButton.text.toString()) {
 
             "Sky blue" -> {
-                editor.putInt(valueSettTheme,1)
-                editorTheme.putBoolean(valueSettChangedTheme,true)
+                editor.putInt(valueSettTheme, 1)
+                editorTheme.putBoolean(valueSettChangedTheme, true)
                 editor.apply()
                 editorTheme.apply()
             }
             "Ocean dark blue" -> {
-                editor.putInt(valueSettTheme,2)
-                editorTheme.putBoolean(valueSettChangedTheme,true)
+                editor.putInt(valueSettTheme, 2)
+                editorTheme.putBoolean(valueSettChangedTheme, true)
                 editor.apply()
                 editorTheme.apply()
             }
             "Grass green" -> {
-                editor.putInt(valueSettTheme,3)
-                editorTheme.putBoolean(valueSettChangedTheme,true)
+                editor.putInt(valueSettTheme, 3)
+                editorTheme.putBoolean(valueSettChangedTheme, true)
                 editor.apply()
                 editorTheme.apply()
             }
             "Mars red" -> {
-                editor.putInt(valueSettTheme,4)
-                editorTheme.putBoolean(valueSettChangedTheme,true)
+                editor.putInt(valueSettTheme, 4)
+                editorTheme.putBoolean(valueSettChangedTheme, true)
                 editor.apply()
                 editorTheme.apply()
             }
             "AMOLED dark" -> {
-                editor.putInt(valueSettTheme,5)
-                editorTheme.putBoolean(valueSettChangedTheme,true)
+                editor.putInt(valueSettTheme, 5)
+                editorTheme.putBoolean(valueSettChangedTheme, true)
+                editor.apply()
+                editorTheme.apply()
+            }
+            "Imperial Purple" -> {
+                editor.putInt(valueSettTheme, 6)
+                editorTheme.putBoolean(valueSettChangedTheme, true)
+                editor.apply()
+                editorTheme.apply()
+            }
+            "Orange Brick" -> {
+                editor.putInt(valueSettTheme, 7)
+                editorTheme.putBoolean(valueSettChangedTheme, true)
                 editor.apply()
                 editorTheme.apply()
             }

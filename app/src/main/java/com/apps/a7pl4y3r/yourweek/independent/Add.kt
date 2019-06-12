@@ -95,7 +95,9 @@ class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
     private fun addTask() {
 
         val db = Daydb(this, dayId())
-        if (db.insertData(strStartHour, strStartMinute, strEndHour, strEndMinute, etTask.text.toString())) {
+        val task = Task(strStartHour, strStartMinute, strEndHour, strEndMinute, etTask.text.toString())
+
+        if (db.insertData(task)) {
             Toast.makeText(this, "Task remembered!", Toast.LENGTH_SHORT).show()
 
             tvChosenStartTime.text = ("No chosen start time")
@@ -140,9 +142,9 @@ class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
 
         val strHour: String
         val strMinute: String
-        val sharedPreferences = getSharedPreferences(settHourFormat, Context.MODE_PRIVATE)
 
-        if (sharedPreferences.getInt(valueSettHourFormat, 1) == 1) {
+
+        /*if (getSharedPreferences(settHourFormat, Context.MODE_PRIVATE).getInt(valueSettHourFormat, 1) == 1) {
             //American
             if(hour >= 12) {
                 strHour = "${hour - 12}"
@@ -154,11 +156,11 @@ class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
                 strMinute = if(minute < 10) "0$minute AM" else "$minute AM"
             }
 
-        } else {
+        } else {*/
             //International
             strHour = if (hour < 10) "0$hour" else "$hour"
             strMinute = if (minute < 10) "0$minute" else "$minute"
-        }
+        //}
 
         when(id){
 

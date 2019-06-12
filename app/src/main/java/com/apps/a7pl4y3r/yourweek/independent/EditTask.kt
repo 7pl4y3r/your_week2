@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.TimePicker
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Daydb
+import com.apps.a7pl4y3r.yourweek.databases.Task
 import com.apps.a7pl4y3r.yourweek.helpers.TimePickerFragment
 import kotlinx.android.synthetic.main.activity_add.*
 
@@ -62,8 +63,9 @@ class EditTask : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
     private fun editTask() {
 
         val db = Daydb(this, intent.getStringExtra("DAYID"))
-        if (db.updateData(intent.getIntExtra("TASKID", 0).toString(), strStartHour!!, strStartMinute!!,
-                strEndHour!!, strEndMinute!!, etTask.text.toString()))
+        val task = Task(strStartHour, strStartMinute, strEndHour, strEndMinute, etTask.text.toString())
+
+        if (db.updateData(intent.getIntExtra("TASKID", 0).toString(), task))
             toastMessage(this, "Task edited!", false)
         else
             toastMessage(this, "Failed to edit task!", false)
@@ -109,9 +111,9 @@ class EditTask : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
 
         val strHour: String
         val strMinute: String
-        val sharedPreferences = getSharedPreferences(settHourFormat, Context.MODE_PRIVATE)
+        /*val sharedPreferences = getSharedPreferences(settHourFormat, Context.MODE_PRIVATE)
 
-        if(sharedPreferences.getInt(valueSettHourFormat, 1) == 1){
+        if (sharedPreferences.getInt(valueSettHourFormat, 1) == 1) {
             //American
             if(hour >= 12) {
                 strHour = "${hour - 12}"
@@ -122,12 +124,11 @@ class EditTask : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
                 strMinute = if(minute < 10) "0$minute AM" else "$minute AM"
             }
 
-        } else {
+        } else {*/
             //International
             strHour = if (hour < 10) "0$hour" else "$hour"
             strMinute = if (minute < 10) "0$minute" else "$minute"
-
-        }
+        //}
 
         when(id){
 

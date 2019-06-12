@@ -76,6 +76,36 @@
 
     </style>
 
+    <!-- Imperial Purple theme id = 6-->
+    <style name="ImperialPurple" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#6A1B9A</item>
+        <item name="colorPrimaryDark">#4A148C</item>
+        <item name="colorAccent">#8E24AA</item>
+        <item name="app_background">#212121</item>
+        <item name="card_background">#424242</item>
+        <item name="app_text">#ffffff</item>
+        <item name="app_hint">#9E9E9E</item>
+        <item name="app_button">#5E35B1</item>
+        <item name="app_button_text_color">#FAFAFA</item>
+
+    </style>
+
+    <!-- Orange Brick theme id = 7-->
+    <style name="OrangeBrick" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#D84315</item>
+        <item name="colorPrimaryDark">#BF360C</item>
+        <item name="colorAccent">#F57C00</item>
+        <item name="app_background">#212121</item>
+        <item name="card_background">#424242</item>
+        <item name="app_text">#ffffff</item>
+        <item name="app_hint">#9E9E9E</item>
+        <item name="app_button">#F4511E</item>
+        <item name="app_button_text_color">#FAFAFA</item>
+
+    </style>
+
     <style name="DefDayTv">
 
         <item name="android:textSize">25sp</item>
