@@ -48,6 +48,7 @@ class Alarms : AppCompatActivity() {
         if (res.count == 0)
             return
 
+        itemList = ArrayList()
         res.moveToFirst()
         do {
 

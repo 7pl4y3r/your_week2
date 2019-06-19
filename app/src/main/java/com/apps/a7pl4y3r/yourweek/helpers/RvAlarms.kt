@@ -23,7 +23,7 @@ class RvAlarms(context: Context, private val items: ArrayList<Alarm>) : Recycler
 
 
     override fun onBindViewHolder(viewHolder: AlarmViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
 

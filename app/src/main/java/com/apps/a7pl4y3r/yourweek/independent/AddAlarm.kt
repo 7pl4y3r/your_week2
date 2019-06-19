@@ -1,7 +1,12 @@
 package com.apps.a7pl4y3r.yourweek.independent
 
+import android.app.AlarmManager
 import android.app.DatePickerDialog
+import android.app.PendingIntent
 import android.app.TimePickerDialog
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
@@ -10,6 +15,7 @@ import android.widget.TimePicker
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Alarm
 import com.apps.a7pl4y3r.yourweek.databases.AlarmDb
+import com.apps.a7pl4y3r.yourweek.helpers.AlertReceiver
 import com.apps.a7pl4y3r.yourweek.helpers.DatePickerFragment
 import com.apps.a7pl4y3r.yourweek.helpers.TimePickerFragment
 import kotlinx.android.synthetic.main.activity_add_alarm.*
@@ -33,18 +39,34 @@ class AddAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePi
             DatePickerFragment().show(supportFragmentManager, "AlarmDate")
         }
 
+
         btTime.setOnClickListener {
             TimePickerFragment().show(supportFragmentManager, "AlarmTime")
         }
 
+
         btCancel.setOnClickListener { finish() }
+
 
         btSaveAlarm.setOnClickListener {
 
             if (etAddAlarm.text.isNotEmpty()) {
 
                 AlarmDb(this).insertAlarm(
-                    Alarm(etAddAlarm.text.toString(), calendar.get(Calendar.DAY_OF_MONTH).toString(), calendar.get(Calendar.MONTH).toString()))
+                    Alarm(etAddAlarm.text.toString(), calendar.get(Calendar.DAY_OF_MONTH).toString(), calendar.get(Calendar.MONTH).toString(),
+                        calendar.get(Calendar.YEAR).toString(), calendar.get(Calendar.HOUR_OF_DAY).toString(), calendar.get(Calendar.MINUTE).toString()))
+
+
+                val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                val pendingIntent = PendingIntent.getBroadcast(this, 1, Intent(this, AlertReceiver::class.java), 0)
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+                    alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+                else
+                    alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+
+
+                toastMessage(this, "Alarm created!", false)
 
             } else {
 

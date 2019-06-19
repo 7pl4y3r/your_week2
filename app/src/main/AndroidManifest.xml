@@ -67,6 +67,9 @@
                 android:name=".independent.SettingsFormats"
                 android:screenOrientation="portrait">
         </activity>
+
+        <receiver android:name=".helpers.AlertReceiver"/>
+
     </application>
 
 </manifest>
