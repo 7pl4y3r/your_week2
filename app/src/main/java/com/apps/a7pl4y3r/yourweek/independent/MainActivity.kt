@@ -55,6 +55,8 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, UpdateTask::class.java).putExtra("DAYID", dayID))
             }
 
+            R.id.nav_alarms -> startActivity(Intent(this, Alarms::class.java))
+
         }
 
         return true

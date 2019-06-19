@@ -45,6 +45,26 @@ fun getButtonDrawable(context: Context): Drawable? = when (context.getSharedPref
 }
 
 
+fun getMonthNameById(id: Int): String = when (id) {
+
+        0 -> "Jan"
+        1 -> "Feb"
+        2 -> "March"
+        3 -> "April"
+        4 -> "May"
+        5 -> "June"
+        6 -> "July"
+        7 -> "Aug"
+        8 -> "Sep"
+        9 -> "Oct"
+        10 -> "Nov"
+        11 -> "Dec"
+
+        else -> "LOL"
+
+}
+
+
 fun toastMessage(context: Context, message: String, isLong: Boolean) {
     Toast.makeText(context, message,
         if (isLong) Toast.LENGTH_LONG else Toast.LENGTH_SHORT).show()
