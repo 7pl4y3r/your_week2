@@ -11,8 +11,7 @@ class AlertReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
 
         val notificationHelper = NotificationHelper(context!!)
-        val nb = notificationHelper.getTestNotification("Title", "Sub")
-        notificationHelper.getManager().notify(1, nb.build())
+        notificationHelper.mManager.notify(1, notificationHelper.getTestNotification("Title", "Sub").build())
 
     }
 

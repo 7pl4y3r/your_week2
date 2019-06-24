@@ -104,15 +104,15 @@ class MainActivity : AppCompatActivity() {
             override fun doInBackground(vararg params: Int?): String {
 
                 viewPagerAdapter = ViewPagerAdapter(fm)
-                viewPagerAdapter.addFrag(Monday(), "Monday")
-                viewPagerAdapter.addFrag(Tuesday(), "Tuesday")
-                viewPagerAdapter.addFrag(Wednesday(), "Wednesday")
-                viewPagerAdapter.addFrag(Thursday(), "Thursday")
-                viewPagerAdapter.addFrag(Friday(), "Friday")
+                viewPagerAdapter.addFrag(Monday())
+                viewPagerAdapter.addFrag(Tuesday())
+                viewPagerAdapter.addFrag(Wednesday())
+                viewPagerAdapter.addFrag(Thursday())
+                viewPagerAdapter.addFrag(Friday())
 
                 if (is7Days) {
-                    viewPagerAdapter.addFrag(Saturday(), "Saturday")
-                    viewPagerAdapter.addFrag(Sunday(), "Sunday")
+                    viewPagerAdapter.addFrag(Saturday())
+                    viewPagerAdapter.addFrag(Sunday())
                 }
 
                 return "Done"
@@ -145,18 +145,18 @@ class MainActivity : AppCompatActivity() {
     private fun setViewPagerAdapter() {
 
         val adapter = ViewPagerAdapter(supportFragmentManager)
-        adapter.addFrag(Monday(), "Monday")
-        adapter.addFrag(Tuesday(), "Tuesday")
-        adapter.addFrag(Wednesday(), "Wednesday")
-        adapter.addFrag(Thursday(), "Thursday")
-        adapter.addFrag(Friday(), "Friday")
+        adapter.addFrag(Monday())
+        adapter.addFrag(Tuesday())
+        adapter.addFrag(Wednesday())
+        adapter.addFrag(Thursday())
+        adapter.addFrag(Friday())
 
 		//true if the week is 7 days long | false if the week is 5 days long
         if(getSharedPreferences(settNumOfDays, Context.MODE_PRIVATE)
                 .getBoolean(valueSettNumOfDays, false)) {
 
-            adapter.addFrag(Saturday(), "Saturday")
-            adapter.addFrag(Sunday(), "Sunday")
+            adapter.addFrag(Saturday())
+            adapter.addFrag(Sunday())
 
             viewPager.adapter = adapter
             viewPager.currentItem = getNORMALDayId()
