@@ -1,9 +1,11 @@
 package com.apps.a7pl4y3r.yourweek.independent
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.widget.LinearLayout
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Alarm
 import com.apps.a7pl4y3r.yourweek.databases.AlarmDb
@@ -20,14 +22,15 @@ class Alarms : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarms)
-        getItemList()
+        setItemList()
 
         if (itemList != null) {
 
             val adapter = RvAlarms(this, itemList!!)
-            rvAlarms.setHasFixedSize(true)
-            rvAlarms.layoutManager = LinearLayoutManager(this)
             rvAlarms.adapter = adapter
+            rvAlarms.layoutManager = LinearLayoutManager(this)
+
+            println("Size of list is ${itemList!!.size}")
 
         } else {
 
@@ -40,7 +43,21 @@ class Alarms : AppCompatActivity() {
     }
 
 
-    private fun getItemList() {
+    override fun onResume() {
+        super.onResume()
+
+        val pref = getSharedPreferences(setAlarmAdded, Context.MODE_PRIVATE)
+        if (pref.getBoolean(valSetAlarmAdded, false)) {
+
+            pref.edit().putBoolean(valSetAlarmAdded, false).apply()
+            startActivity(Intent(this, Alarms::class.java))
+            finish()
+
+        }
+
+    }
+
+    private fun setItemList() {
 
         val db = AlarmDb(this)
         val res = db.getAlarms()

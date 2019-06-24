@@ -15,17 +15,25 @@ class NotificationHelper(context: Context) : ContextWrapper(context) {
     private val channelId = "7357"
     private val channelName = "Tests"
 
-    var mManager: NotificationManager? = null
+    private var mManager: NotificationManager? = null
 
 
     init {
 
-        mManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            mManager!!.createNotificationChannel(NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH))
+            getManager().createNotificationChannel(NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH))
 
     }
+
+
+    fun getManager(): NotificationManager {
+
+        if (mManager == null)
+            mManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        return mManager!!
+    }
+
 
 
     fun getTestNotification(title: String, subtitle: String): NotificationCompat.Builder = NotificationCompat.Builder(applicationContext, channelId)

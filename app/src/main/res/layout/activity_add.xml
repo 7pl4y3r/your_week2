@@ -52,20 +52,6 @@
             android:layout_marginStart="10dp"
             android:textSize="20sp"/>
 
-        <!--
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btStartTime"
-            android:text="Pick the start time"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:background="?attr/app_button"
-            android:textColor="?attr/app_button_text_color"
-            android:textSize="15sp"/>
-            -->
-
         <TextView
             android:id="@+id/tvChosenEndTime"
             android:layout_width="wrap_content"
@@ -76,22 +62,6 @@
             android:layout_marginStart="10dp"
             android:textAlignment="viewStart"
             android:textSize="20sp"/>
-
-        <!--
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btEndTime"
-            android:text="Pick the end time"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:background="?attr/app_button"
-            android:textColor="?attr/app_button_text_color"
-            android:textSize="15sp"/>
-            -->
-
-
 
     </LinearLayout>
 
@@ -141,82 +111,3 @@
     </LinearLayout>
 
 </RelativeLayout>
-
-        <!-- <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Choose a day"
-                   android:layout_marginBottom="5dp"
-                   android:layout_marginTop="10dp"
-                   android:layout_marginStart="10dp"
-                   android:textColor="?attr/app_text"
-                   android:textSize="30sp"/>
-
-               <RadioGroup
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:id="@+id/radioGroup"
-                   android:layout_marginStart="10dp">
-
-                   <RadioButton
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/mon"
-                       android:text="Monday"
-                       android:checked="true"
-                       android:textColor="?attr/app_text"
-                       style="@style/DefRadioButton"/>
-
-                   <RadioButton
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/tue"
-                       android:text="Tuesday"
-                       android:textColor="?attr/app_text"
-                       style="@style/DefRadioButton"/>
-
-                   <RadioButton
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/wed"
-                       android:text="Wednesday"
-                       android:textColor="?attr/app_text"
-                       style="@style/DefRadioButton"/>
-
-                   <RadioButton
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/thu"
-                       android:text="Thursday"
-                       android:textColor="?attr/app_text"
-                       style="@style/DefRadioButton"/>
-
-                   <RadioButton
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/fri"
-                       android:text="Friday"
-                       android:textColor="?attr/app_text"
-                       style="@style/DefRadioButton"/>
-
-                   <RadioButton
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/sat"
-                       android:text="Saturday"
-                       android:checked="true"
-                       android:textColor="?attr/app_text"
-                       style="@style/DefRadioButton"/>
-
-                   <RadioButton
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/sun"
-                       android:text="Sunday"
-                       android:checked="true"
-                       android:textColor="?attr/app_text"
-                       style="@style/DefRadioButton"/>
-
-               </RadioGroup>
-
-               -->

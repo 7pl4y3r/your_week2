@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Alarm
+import com.apps.a7pl4y3r.yourweek.independent.getMonthNameById
 import kotlinx.android.synthetic.main.card_alarm.view.*
 
 class RvAlarms(context: Context, private val items: ArrayList<Alarm>) : RecyclerView.Adapter<RvAlarms.AlarmViewHolder>() {
@@ -23,7 +24,8 @@ class RvAlarms(context: Context, private val items: ArrayList<Alarm>) : Recycler
 
 
     override fun onBindViewHolder(viewHolder: AlarmViewHolder, position: Int) {
-
+        viewHolder.tvContent.text = "${items[position].name}\n\nDate: ${items[position].day} ${getMonthNameById(items[position].month.toInt())} ${items[position].year}\n" +
+                "Time: ${items[position].hour} ${items[position].minute}"
     }
 
 
@@ -33,7 +35,7 @@ class RvAlarms(context: Context, private val items: ArrayList<Alarm>) : Recycler
 
 
     class AlarmViewHolder(view: View, listener: OnItemClickListener?) : RecyclerView.ViewHolder(view) {
-        val tvContent = view.findViewById<TextView>(R.id.tv_alarm_content)
+        val tvContent: TextView = view.findViewById(R.id.tv_alarm_content)
     }
 
 }

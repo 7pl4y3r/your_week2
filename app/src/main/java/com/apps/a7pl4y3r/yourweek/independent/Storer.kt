@@ -28,3 +28,6 @@ const val valSetSwitchTheme1 = "valDayTheme"
 
 const val setSwitchTheme2 = "NightTheme"
 const val valSetSwitchTheme2 = "valNightTheme"
+
+const val setAlarmAdded = "AlarmAdded"
+const val valSetAlarmAdded = "valAlarmAdded"

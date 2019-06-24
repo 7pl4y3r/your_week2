@@ -61,6 +61,7 @@ class AlarmDb(context: Context) : SQLiteOpenHelper(context, databaseName, null, 
         cv.put(col6, alarm.minute)
 
         this.writableDatabase.update(tableName, cv, "ID = ?", arrayOf(id))
+
         return true
     }
 

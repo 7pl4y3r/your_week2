@@ -9,8 +9,11 @@ class AlertReceiver : BroadcastReceiver() {
 
 
     override fun onReceive(context: Context?, intent: Intent?) {
+
         val notificationHelper = NotificationHelper(context!!)
-        notificationHelper.mManager!!.notify(1, notificationHelper.getTestNotification("Math", "16.04.2018").build())
+        val nb = notificationHelper.getTestNotification("Title", "Sub")
+        notificationHelper.getManager().notify(1, nb.build())
+
     }
 
 }
