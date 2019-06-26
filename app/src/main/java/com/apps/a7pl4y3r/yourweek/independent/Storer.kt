@@ -31,3 +31,10 @@ const val valSetSwitchTheme2 = "valNightTheme"
 
 const val setAlarmAdded = "AlarmAdded"
 const val valSetAlarmAdded = "valAlarmAdded"
+
+const val nameExtra = "NAME_EXTRA"
+const val yearExtra = "YEAR_EXTRA"
+const val monthExtra = "MONTH_EXTRA"
+const val dayExtra = "DAY_EXTRA"
+const val hourExtra = "HOUR_EXTRA"
+const val minuteExtra = "MINUTE_EXTRA"

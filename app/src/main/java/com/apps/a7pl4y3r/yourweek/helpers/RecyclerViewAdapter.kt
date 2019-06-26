@@ -11,6 +11,7 @@ import android.widget.TextView
 import com.apps.a7pl4y3r.yourweek.R
 import com.example.alin.yourweek.helpers.ItemOfRV
 
+
 class RecyclerViewAdapter(private val context: Context,
     private val itemList: ArrayList<ItemOfRV>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 

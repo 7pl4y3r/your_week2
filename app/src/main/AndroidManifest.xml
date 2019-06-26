@@ -68,6 +68,8 @@
                 android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".independent.EditAlarm"/>
+
         <receiver android:name=".helpers.AlertReceiver"/>
 
     </application>

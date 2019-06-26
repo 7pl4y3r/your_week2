@@ -1,11 +1,16 @@
 package com.apps.a7pl4y3r.yourweek.independent
 
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.support.annotation.RequiresApi
 import android.widget.Toast
 import com.apps.a7pl4y3r.yourweek.R
+import com.apps.a7pl4y3r.yourweek.helpers.AlertReceiver
+import java.util.*
 
 
 fun setAppTheme(context: Context) {
@@ -68,4 +73,41 @@ fun getMonthNameById(id: Int): String = when (id) {
 fun toastMessage(context: Context, message: String, isLong: Boolean) {
     Toast.makeText(context, message,
         if (isLong) Toast.LENGTH_LONG else Toast.LENGTH_SHORT).show()
+}
+
+
+fun startAlarm(context: Context, id: Int, calendar: Calendar) {
+
+    val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+    val intent = Intent(context, AlertReceiver::class.java)
+    val pendingIntent = PendingIntent.getBroadcast(context, id, intent, 0)
+
+
+    if (calendar.before(Calendar.getInstance()))
+        calendar.add(Calendar.DATE, 1)
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+    else
+        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+
+}
+
+
+fun cancelAlarm(context: Context, id: Int) {
+
+    if (id != -1) {
+
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(context, AlertReceiver::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(context, id, intent, 0)
+
+        alarmManager.cancel(pendingIntent)
+
+    } else {
+
+        toastMessage(context, "There is no such alarm!", false)
+
+    }
+
 }

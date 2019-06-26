@@ -16,27 +16,15 @@ import kotlinx.android.synthetic.main.activity_alarms.*
 class Alarms : AppCompatActivity() {
 
 
-    private var itemList: ArrayList<Alarm>? = null
+    private val itemList = ArrayList<Alarm>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarms)
         setItemList()
+        setRecyclerView()
 
-        if (itemList != null) {
-
-            val adapter = RvAlarms(this, itemList!!)
-            rvAlarms.adapter = adapter
-            rvAlarms.layoutManager = LinearLayoutManager(this)
-
-            println("Size of list is ${itemList!!.size}")
-
-        } else {
-
-            toastMessage(this, "There are currently no alarms", true)
-
-        }
 
         fabAddAlarm.setOnClickListener { startActivity(Intent(this, AddAlarm::class.java)) }
 
@@ -59,21 +47,51 @@ class Alarms : AppCompatActivity() {
 
     private fun setItemList() {
 
-        val db = AlarmDb(this)
-        val res = db.getAlarms()
+        val res = AlarmDb(this).getAlarms()
 
-        if (res.count == 0)
+        if (res.count == 0) {
+            itemList.add(Alarm("No alarms!", "", "0", "", "", ""))
             return
+        }
 
-        itemList = ArrayList()
+
         res.moveToFirst()
         do {
 
-            itemList!!.add(Alarm(res.getString(1), res.getString(2),
+            itemList.add(Alarm(res.getString(1), res.getString(2),
                 res.getString(3), res.getString(4),
                 res.getString(5), res.getString(6)))
 
         } while (res.moveToNext())
+
+    }
+
+
+    private fun setRecyclerView() {
+
+        val adapter = RvAlarms(this, itemList)
+
+        rvAlarms.setHasFixedSize(true)
+        rvAlarms.layoutManager = LinearLayoutManager(this)
+        rvAlarms.adapter = adapter
+
+        adapter.setOnItemClickListener(object : RvAlarms.OnItemClickListener {
+
+            override fun onItemClick(position: Int) {
+
+                val intent = Intent(this@Alarms, EditAlarm::class.java)
+                intent.putExtra(nameExtra, itemList[position].name)
+                    .putExtra(yearExtra, itemList[position].year)
+                    .putExtra(monthExtra, itemList[position].month)
+                    .putExtra(dayExtra, itemList[position].day)
+                    .putExtra(hourExtra, itemList[position].hour)
+                    .putExtra(minuteExtra, itemList[position].minute)
+
+                startActivity(intent)
+
+            }
+
+        })
 
     }
 

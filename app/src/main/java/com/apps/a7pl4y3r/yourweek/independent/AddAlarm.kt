@@ -27,7 +27,7 @@ import java.util.*
 class AddAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
 
-    private var calendar: Calendar = Calendar.getInstance()
+    private val calendar: Calendar = Calendar.getInstance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,13 +51,17 @@ class AddAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePi
 
             if (etAddAlarm.text.isNotEmpty()) {
 
-                AlarmDb(this).insertAlarm(
+                val db = AlarmDb(this)
+                db.insertAlarm(
                     Alarm(etAddAlarm.text.toString(), calendar.get(Calendar.DAY_OF_MONTH).toString(), calendar.get(Calendar.MONTH).toString(),
                         calendar.get(Calendar.YEAR).toString(), calendar.get(Calendar.HOUR_OF_DAY).toString(), calendar.get(Calendar.MINUTE).toString()))
 
+                val res = db.getAlarms()
+                res.moveToLast()
 
-                startAlarm(calendar)
-                setAlarmAddedBoolean()
+                startAlarm(this, res.getString(0).toInt(), calendar)
+                getSharedPreferences(setAlarmAdded, Context.MODE_PRIVATE).edit().putBoolean(valSetAlarmAdded, true).apply()
+                finish()
 
                 toastMessage(this, "Alarm created!", false)
 
@@ -72,52 +76,6 @@ class AddAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePi
     }
 
 
-    private fun startAlarm(calendar: Calendar) {
-
-        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val intent = Intent(this, AlertReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0)
-
-        printCalendar(calendar)
-
-        if (calendar.before(Calendar.getInstance()))
-            calendar.add(Calendar.DATE, 1)
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
-        else
-            alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
-
-    }
-
-
-    private fun setAlarmAddedBoolean() {
-
-        getSharedPreferences(setAlarmAdded, Context.MODE_PRIVATE).edit().putBoolean(valSetAlarmAdded, true).apply()
-        finish()
-
-    }
-
-
-    private fun printCalendar(calendar: Calendar) {
-
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val hour = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute = calendar.get(Calendar.MINUTE)
-
-        println("year: $year")
-        println("month: $month")
-        println("day: $day")
-        println("hour: $hour")
-        println("minute: $minute")
-        println("milisthen: ${calendar.timeInMillis}")
-        println("milisthen: ${Calendar.getInstance()}")
-
-    }
-
-
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
 
         calendar.set(Calendar.YEAR, year)
@@ -126,8 +84,6 @@ class AddAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePi
 
         tvDate.text = "$dayOfMonth/${getMonthNameById(month)}/$year"
 
-        toastMessage(this, "year$year\nmonth$month\ndayofmonth$dayOfMonth", true)
-
     }
 
 
@@ -135,8 +91,6 @@ class AddAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePi
 
         calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
         calendar.set(Calendar.MINUTE, minute)
-
-        toastMessage(this, "hour$hourOfDay\nminute$minute", true)
 
         tvTime.text = "$hourOfDay:$minute"
 
