@@ -1,16 +1,15 @@
 package com.apps.a7pl4y3r.yourweek.independent
 
 import android.content.Context
-import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RadioButton
-import android.widget.Toast
+
 import com.apps.a7pl4y3r.yourweek.R
+
 import kotlinx.android.synthetic.main.activity_setting_theme.*
-import kotlinx.android.synthetic.main.activity_setting_theme.btCancel
-import kotlinx.android.synthetic.main.activity_settings_formats.*
+
 
 class SettingTheme : AppCompatActivity() {
 

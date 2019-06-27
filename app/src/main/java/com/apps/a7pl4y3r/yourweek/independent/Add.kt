@@ -6,10 +6,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TimePicker
 import android.widget.Toast
+
 import com.apps.a7pl4y3r.yourweek.R
-import com.apps.a7pl4y3r.yourweek.databases.*
-import com.apps.a7pl4y3r.yourweek.helpers.*
+import com.apps.a7pl4y3r.yourweek.databases.Daydb
+import com.apps.a7pl4y3r.yourweek.databases.Task
+import com.apps.a7pl4y3r.yourweek.helpers.TimePickerFragment
+
 import kotlinx.android.synthetic.main.activity_add.*
+
 
 class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
 
@@ -24,25 +28,25 @@ class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
     private var dayOfSet = 0
     private var maxDay = 6
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setAppTheme(this)
         setContentView(R.layout.activity_add)
+        setSupportActionBar(toolbarAdd)
         initData()
         setActionBar()
 
         //Opens the first timePickerDialog and set it's id to 1 for use in onTimeSet()
         tvChosenStartTime.setOnClickListener {
             timePickerID = 1
-            val startTimePicker = TimePickerFragment()
-            startTimePicker.show(supportFragmentManager,"Start time")
+            TimePickerFragment().show(supportFragmentManager,"Start time")
         }
 
         //Opens the second timePickerDialog and set it's id to 2 for use in onTimeSet()
         tvChosenEndTime.setOnClickListener {
             timePickerID = 2
-            val endTimePicker = TimePickerFragment()
-            endTimePicker.show(supportFragmentManager,"End time")
+            TimePickerFragment().show(supportFragmentManager,"End time")
         }
 
         btExitAdd.setOnClickListener { finish() }
@@ -69,26 +73,26 @@ class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
         btCreate.setOnClickListener{
 
             if (dataIsValid()) {
-                addTask()
-                val sharedPreferences = getSharedPreferences(settTaskWasAdded, Context.MODE_PRIVATE)
-                val editor = sharedPreferences.edit()
-                editor.putBoolean(valueSettTaskWasAdded, true)
-                editor.apply()
 
+                addTask()
+                getSharedPreferences(settTaskWasAdded, Context.MODE_PRIVATE).edit().putBoolean(valueSettTaskWasAdded, true).apply()
                 wantsUpdate = true
+
             } else Toast.makeText(this,"I need more info in order to create your task",Toast.LENGTH_SHORT).show()
         }
     }
 
+
     private fun initData() {
+
         wantsUpdate = false
         pivDay = intent.getIntExtra("DAY", 0)
         maxDay = if (getSharedPreferences(settNumOfDays, Context.MODE_PRIVATE)
                 .getBoolean(valueSettNumOfDays, false)) 4 else 6
+
     }
 
     private fun setActionBar() {
-        setSupportActionBar(toolbarAdd)
         toolbarAdd.title = "Add task - ${dayId()}"
     }
 

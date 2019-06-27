@@ -8,14 +8,16 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.DatePicker
 import android.widget.TimePicker
+
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Alarm
 import com.apps.a7pl4y3r.yourweek.databases.AlarmDb
 import com.apps.a7pl4y3r.yourweek.helpers.DatePickerFragment
 import com.apps.a7pl4y3r.yourweek.helpers.TimePickerFragment
+
 import kotlinx.android.synthetic.main.activity_add_alarm.*
 
-import java.util.*
+import java.util.Calendar
 
 
 class EditAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
@@ -56,7 +58,7 @@ class EditAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimeP
                         calendar.get(Calendar.YEAR).toString(), calendar.get(Calendar.HOUR_OF_DAY).toString(), calendar.get(Calendar.MINUTE).toString()))
 
             cancelAlarm(this, id)
-            startAlarm(this, id.toInt(), calendar)
+            startAlarm(this, id, etAddAlarm.text.toString(), calendar)
 
         }
 

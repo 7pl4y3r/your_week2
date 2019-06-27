@@ -10,15 +10,16 @@ import android.support.v7.widget.CardView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
+
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Daydb
-import com.apps.a7pl4y3r.yourweek.databases.Task
 import com.apps.a7pl4y3r.yourweek.helpers.RecyclerViewAdapter
 import com.example.alin.yourweek.helpers.ItemOfRV
 
 import kotlinx.android.synthetic.main.activity_update_task.*
-import java.util.*
+import java.util.Collections
 import kotlin.collections.ArrayList
+
 
 class UpdateTask : AppCompatActivity() {
 

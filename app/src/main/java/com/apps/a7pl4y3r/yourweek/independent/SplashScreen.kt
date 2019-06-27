@@ -4,8 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+
 import com.apps.a7pl4y3r.yourweek.R
-import java.util.*
+
+import java.lang.Thread
+import java.util.Calendar
 
 class SplashScreen : AppCompatActivity() {
 

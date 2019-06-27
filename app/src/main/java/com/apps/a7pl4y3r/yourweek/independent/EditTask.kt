@@ -2,15 +2,17 @@ package com.apps.a7pl4y3r.yourweek.independent
 
 import android.app.TimePickerDialog
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TimePicker
+
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Daydb
 import com.apps.a7pl4y3r.yourweek.databases.Task
 import com.apps.a7pl4y3r.yourweek.helpers.TimePickerFragment
+
 import kotlinx.android.synthetic.main.activity_add.*
+
 
 class EditTask : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
 

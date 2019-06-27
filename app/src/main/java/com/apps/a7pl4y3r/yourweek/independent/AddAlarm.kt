@@ -1,12 +1,8 @@
 package com.apps.a7pl4y3r.yourweek.independent
 
-import android.app.AlarmManager
 import android.app.DatePickerDialog
-import android.app.PendingIntent
 import android.app.TimePickerDialog
 import android.content.Context
-import android.content.Intent
-import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
@@ -15,13 +11,12 @@ import android.widget.TimePicker
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Alarm
 import com.apps.a7pl4y3r.yourweek.databases.AlarmDb
-import com.apps.a7pl4y3r.yourweek.helpers.AlertReceiver
 import com.apps.a7pl4y3r.yourweek.helpers.DatePickerFragment
 import com.apps.a7pl4y3r.yourweek.helpers.TimePickerFragment
 
 import kotlinx.android.synthetic.main.activity_add_alarm.*
 
-import java.util.*
+import java.util.Calendar
 
 
 class AddAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
@@ -59,7 +54,7 @@ class AddAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePi
                 val res = db.getAlarms()
                 res.moveToLast()
 
-                startAlarm(this, res.getString(0).toInt(), calendar)
+                startAlarm(this, res.getString(0).toInt(), etAddAlarm.text.toString(), calendar)
                 getSharedPreferences(setAlarmAdded, Context.MODE_PRIVATE).edit().putBoolean(valSetAlarmAdded, true).apply()
                 finish()
 

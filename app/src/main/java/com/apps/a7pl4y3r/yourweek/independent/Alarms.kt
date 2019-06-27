@@ -5,11 +5,12 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.widget.LinearLayout
+
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Alarm
 import com.apps.a7pl4y3r.yourweek.databases.AlarmDb
 import com.apps.a7pl4y3r.yourweek.helpers.RvAlarms
+
 import kotlinx.android.synthetic.main.activity_alarms.*
 
 

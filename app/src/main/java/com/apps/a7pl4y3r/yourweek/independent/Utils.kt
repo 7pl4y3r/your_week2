@@ -76,10 +76,18 @@ fun toastMessage(context: Context, message: String, isLong: Boolean) {
 }
 
 
-fun startAlarm(context: Context, id: Int, calendar: Calendar) {
+fun startAlarm(context: Context, id: Int, name: String, calendar: Calendar) {
 
     val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
     val intent = Intent(context, AlertReceiver::class.java)
+
+    intent.putExtra(nameExtra, name)
+    intent.putExtra(yearExtra, calendar.get(Calendar.YEAR))
+    intent.putExtra(monthExtra, calendar.get(Calendar.MONTH))
+    intent.putExtra(dayExtra, calendar.get(Calendar.DAY_OF_MONTH))
+    intent.putExtra(hourExtra, calendar.get(Calendar.HOUR_OF_DAY))
+    intent.putExtra(minuteExtra, calendar.get(Calendar.MINUTE))
+
     val pendingIntent = PendingIntent.getBroadcast(context, id, intent, 0)
 
 
@@ -111,3 +119,6 @@ fun cancelAlarm(context: Context, id: Int) {
     }
 
 }
+
+
+fun getCalendarDateString(year: Int, month: Int, day: Int, hour: Int, minute: Int): String = ("$hour:$minute $day ${getMonthNameById(month)} $year")
