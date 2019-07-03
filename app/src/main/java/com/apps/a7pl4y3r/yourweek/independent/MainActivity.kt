@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         mainFab.setOnClickListener {
             dayID = viewPager.currentItem
-            startActivity(Intent(this, Add::class.java).putExtra("DAY", dayID))
+            startActivity(Intent(this, Add::class.java).putExtra(dayExtra, dayID))
         }
 
     }

@@ -2,6 +2,7 @@ package com.apps.a7pl4y3r.yourweek.independent
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -28,6 +29,7 @@ class EditAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimeP
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setAppTheme(this)
         setContentView(R.layout.activity_add_alarm)
         setCalendar()
         setUiData()
@@ -59,6 +61,8 @@ class EditAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimeP
 
             cancelAlarm(this, id)
             startAlarm(this, id, etAddAlarm.text.toString(), calendar)
+            getSharedPreferences(setAlarmAdded, Context.MODE_PRIVATE).edit().putBoolean(valSetAlarmAdded, true).apply()
+            finish()
 
         }
 
@@ -80,6 +84,8 @@ class EditAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimeP
                 val id = getIdByName(intent.getStringExtra(nameExtra))
                 cancelAlarm(this, id)
                 AlarmDb(this).deleteAlarm(id.toString())
+                getSharedPreferences(setAlarmAdded, Context.MODE_PRIVATE).edit().putBoolean(valSetAlarmAdded, true).apply()
+                finish()
 
             }
 

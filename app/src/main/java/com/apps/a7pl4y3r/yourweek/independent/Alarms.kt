@@ -22,6 +22,7 @@ class Alarms : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setAppTheme(this)
         setContentView(R.layout.activity_alarms)
         setItemList()
         setRecyclerView()
@@ -76,23 +77,27 @@ class Alarms : AppCompatActivity() {
         rvAlarms.layoutManager = LinearLayoutManager(this)
         rvAlarms.adapter = adapter
 
-        adapter.setOnItemClickListener(object : RvAlarms.OnItemClickListener {
+        if (itemList[0].name != "No alarms!" && itemList[0].day != "" && itemList[0].month != "0" && itemList[0].year != "" && itemList[0].hour != "" && itemList[0].minute != "") {
 
-            override fun onItemClick(position: Int) {
+            adapter.setOnItemClickListener(object : RvAlarms.OnItemClickListener {
 
-                val intent = Intent(this@Alarms, EditAlarm::class.java)
-                intent.putExtra(nameExtra, itemList[position].name)
-                    .putExtra(yearExtra, itemList[position].year)
-                    .putExtra(monthExtra, itemList[position].month)
-                    .putExtra(dayExtra, itemList[position].day)
-                    .putExtra(hourExtra, itemList[position].hour)
-                    .putExtra(minuteExtra, itemList[position].minute)
+                override fun onItemClick(position: Int) {
 
-                startActivity(intent)
+                    val intent = Intent(this@Alarms, EditAlarm::class.java)
+                    intent.putExtra(nameExtra, itemList[position].name)
+                        .putExtra(yearExtra, itemList[position].year)
+                        .putExtra(monthExtra, itemList[position].month)
+                        .putExtra(dayExtra, itemList[position].day)
+                        .putExtra(hourExtra, itemList[position].hour)
+                        .putExtra(minuteExtra, itemList[position].minute)
 
-            }
+                    startActivity(intent)
 
-        })
+                }
+
+            })
+
+        }
 
     }
 

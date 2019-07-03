@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".independent.Add"
-    android:orientation="vertical"
-    android:background="?attr/app_background">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".independent.Add"
+                android:orientation="vertical"
+                android:background="?attr/app_background">
 
     <android.support.v7.widget.Toolbar
             android:id="@+id/toolbarAdd"
@@ -17,51 +17,45 @@
             app:title="Add task"/>
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp">
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/etTask"
-            android:inputType="text"
-            android:layout_marginTop="20dp"
-            android:singleLine="true"
-            android:hint="What is your task?"
-            android:textSize="24sp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:textAlignment="viewStart"
-            android:textColorHint="?attr/app_hint"
-            android:textColor="?attr/app_text"/>
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/etTask"
+                android:inputType="text"
+                android:singleLine="true"
+                android:hint="@string/task_hint"
+                android:textSize="24sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textAlignment="viewStart"
+                android:textColorHint="?attr/app_hint"
+                android:textColor="?attr/app_text"/>
 
         <TextView
-            android:id="@+id/tvChosenStartTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No chosen start time"
-            android:textColor="?attr/app_text"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            android:textSize="20sp"/>
+                android:id="@+id/tvChosenStartTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_start_time"
+                android:textColor="?attr/app_text"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"/>
 
         <TextView
-            android:id="@+id/tvChosenEndTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No chosen end time"
-            android:textColor="?attr/app_text"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="10dp"
-            android:textAlignment="viewStart"
-            android:textSize="20sp"/>
+                android:id="@+id/tvChosenEndTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_end_time"
+                android:textColor="?attr/app_text"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="10dp"
+                android:textAlignment="viewStart"
+                android:textSize="20sp"/>
 
     </LinearLayout>
 
@@ -70,43 +64,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_alignParentBottom="true">
+            android:layout_alignParentBottom="true"
+            style="?android:attr/buttonBarStyle">
 
         <Button
-            android:id="@+id/btExitAdd"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?attr/app_button"
-            android:textColor="?attr/app_button_text_color"
-            android:text="Exit"/>
+                android:id="@+id/btExitAdd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/app_button"
+                android:textColor="?attr/app_button_text_color"
+                android:text="@string/exit"
+                style="?android:attr/buttonBarButtonStyle"/>
 
         <Button
-            android:id="@+id/btMin1Day"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?attr/app_button"
-            android:textColor="?attr/app_button_text_color"
-            android:text="-1 day"/>
+                android:id="@+id/btMin1Day"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/app_button"
+                android:textColor="?attr/app_button_text_color"
+                android:text="@string/pre_day"
+                style="?android:attr/buttonBarButtonStyle"/>
 
         <Button
-            android:id="@+id/btPlus1Day"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?attr/app_button"
-            android:textColor="?attr/app_button_text_color"
-            android:text="+1 day"/>
+                android:id="@+id/btPlus1Day"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/app_button"
+                android:textColor="?attr/app_button_text_color"
+                android:text="@string/next_day"
+                style="?android:attr/buttonBarButtonStyle"/>
 
         <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:id="@+id/btCreate"
-            android:background="?attr/app_button"
-            android:textColor="?attr/app_button_text_color"
-            android:text="save"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/btCreate"
+                android:background="?attr/app_button"
+                android:textColor="?attr/app_button_text_color"
+                android:text="@string/save"
+                style="?android:attr/buttonBarButtonStyle"/>
 
     </LinearLayout>
 

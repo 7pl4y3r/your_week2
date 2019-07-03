@@ -57,7 +57,7 @@ class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
                 dayOfSet--
                 setActionBar()
 
-            } else toastMessage(this, "You have already reached Monday!", true)
+            } else toastMessage(this, getString(R.string.low_limit), true)
         }
 
         btPlus1Day.setOnClickListener {
@@ -66,7 +66,7 @@ class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
                 dayOfSet++
                 setActionBar()
 
-            } else toastMessage(this, "You have already reached Sunday", true)
+            } else toastMessage(this, getString(R.string.high_limit), true)
         }
 
         //Inserts data in the database on button click
@@ -78,7 +78,7 @@ class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
                 getSharedPreferences(settTaskWasAdded, Context.MODE_PRIVATE).edit().putBoolean(valueSettTaskWasAdded, true).apply()
                 wantsUpdate = true
 
-            } else Toast.makeText(this,"I need more info in order to create your task",Toast.LENGTH_SHORT).show()
+            } else Toast.makeText(this,getString(R.string.more_info_required),Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -86,7 +86,7 @@ class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
     private fun initData() {
 
         wantsUpdate = false
-        pivDay = intent.getIntExtra("DAY", 0)
+        pivDay = intent.getIntExtra(dayExtra, 0)
         maxDay = if (getSharedPreferences(settNumOfDays, Context.MODE_PRIVATE)
                 .getBoolean(valueSettNumOfDays, false)) 4 else 6
 
@@ -102,14 +102,14 @@ class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
         val task = Task(strStartHour, strStartMinute, strEndHour, strEndMinute, etTask.text.toString())
 
         if (db.insertData(task)) {
-            Toast.makeText(this, "Task remembered!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.task_remembered), Toast.LENGTH_SHORT).show()
 
-            tvChosenStartTime.text = ("No chosen start time")
-            tvChosenEndTime.text = ("No chosen end time")
+            tvChosenStartTime.setText(R.string.no_start_time)
+            tvChosenEndTime.setText(R.string.no_end_time)
             etTask.text = null
             db.close()
 
-        } else Toast.makeText(this, "ERROR!\nTask could not be remembered!", Toast.LENGTH_SHORT).show()
+        } else Toast.makeText(this, getString(R.string.task_error), Toast.LENGTH_SHORT).show()
     }
 
     private fun dataIsValid(): Boolean {
@@ -117,27 +117,24 @@ class Add : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
         val startTime = tvChosenStartTime.text.toString()
         val endTime = tvChosenEndTime.text.toString()
 
-        if(etTask.text.isEmpty() || startTime == "No chosen start time" || endTime == "No chosen end time")
+        if(etTask.text.isEmpty() || startTime == getString(R.string.no_start_time) || endTime == getString(R.string.no_end_time))
             return false
 
         return true
     }
 
-    private fun dayId(): String {
+    private fun dayId(): String = when (pivDay + dayOfSet) {
 
-        when(pivDay + dayOfSet) {
-
-            0 -> return "Monday"
-            1 -> return "Tuesday"
-            2 -> return "Wednesday"
-            3 -> return "Thursday"
-            4 -> return "Friday"
-            5 -> return "saturday"
-            6 -> return "Sunday"
+            0 -> getString(R.string.monday)
+            1 -> getString(R.string.tuesday)
+            2 -> getString(R.string.wednesday)
+            3 -> getString(R.string.thursday)
+            4 -> getString(R.string.friday)
+            5 -> getString(R.string.saturday)
+            6 -> getString(R.string.sunday)
+            else -> "LOLLOL"
 
         }
-        return "LOLLOL"
-    }
 
     /*Returns the time chosen by the user in the timePickerDialog for both cases
      *in the desired format. Depends on the settings. The default is american.

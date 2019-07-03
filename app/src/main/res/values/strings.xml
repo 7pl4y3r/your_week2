@@ -17,4 +17,34 @@
     <string name="saturday">Saturday</string>
     <string name="sunday">Sunday</string>
 
+
+    <!-- Task messages -->
+    <string name="task_hint">What is your task?</string>
+    <string name="task_remembered">Task remembered!</string>
+    <string name="task_error">ERROR! Task could not be remembered!</string>
+    <string name="more_info_required">I need more info in order to create your task</string>
+
+
+    <!-- Time strings -->
+    <string name="no_start_time">No chosen start time</string>
+    <string name="no_end_time">No chosen end time</string>
+
+    <string name="low_limit">You have already reached Monday!</string>
+    <string name="high_limit">You have already reached the upper limit!</string>
+
+
+    <!-- Alarm messages -->
+    <string name="alarm_created">Alarm created!</string>
+    <string name="alarm_error_no_name">You need to provide an alarm name!</string>
+    <string name="alarm_hint">Name</string>
+    <string name="choose_date">Choose date</string>
+    <string name="choose_time">Choose time</string>
+
+
+    <!-- Button text -->
+    <string name="exit">Exit</string>
+    <string name="save">Save</string>
+    <string name="pre_day">-1 day</string>
+    <string name="next_day">+1 day</string>
+
 </resources>

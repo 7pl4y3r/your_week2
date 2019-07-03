@@ -27,6 +27,7 @@ class AddAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setAppTheme(this)
         setContentView(R.layout.activity_add_alarm)
 
         btDate.setOnClickListener {
@@ -58,11 +59,11 @@ class AddAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePi
                 getSharedPreferences(setAlarmAdded, Context.MODE_PRIVATE).edit().putBoolean(valSetAlarmAdded, true).apply()
                 finish()
 
-                toastMessage(this, "Alarm created!", false)
+                toastMessage(this, getString(R.string.alarm_created), false)
 
             } else {
 
-                toastMessage(this, "You need to provide an alarm name!", false)
+                toastMessage(this, getString(R.string.alarm_error_no_name), false)
 
             }
 

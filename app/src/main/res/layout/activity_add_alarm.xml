@@ -6,53 +6,60 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.apps.a7pl4y3r.yourweek.independent.AddAlarm">
+        tools:context="com.apps.a7pl4y3r.yourweek.independent.AddAlarm"
+        android:background="?attr/app_background">
 
     <android.support.v7.widget.Toolbar
             android:id="@+id/toolbarAddAlarm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Add alarm"
-            android:background="@color/colorPrimaryDark"/>
+            android:background="?attr/app_button"
+            app:titleTextColor="?attr/app_button_text_color"
+            app:title="Add alarm"/>
 
     <EditText
             android:id="@+id/etAddAlarm"
-            android:layout_width="256dp" 
+            android:layout_width="256dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="128dp"
             android:layout_centerHorizontal="true"
-            android:hint="Name"
+            android:hint="@string/alarm_hint"
+            android:inputType="text"
             android:layout_below="@+id/toolbarAddAlarm"
-            android:textSize="24sp"/>
-    
+            android:textSize="24sp"
+            android:textColorHint="?attr/app_hint"
+            android:textColor="?attr/app_text"/>
+
     <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="3.7.1991"
             android:layout_marginTop="32dp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/etAddAlarm"/>
+            android:layout_below="@id/etAddAlarm"
+            android:textColor="?attr/app_text"/>
 
     <Button
             android:id="@+id/btDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose date"
+            android:text="@string/choose_date"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/tvDate"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:background="?attr/app_button"
+            android:textColor="?attr/app_button_text_color"/>
 
     <TextView
             android:id="@+id/tvTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="07:00"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/btDate"
-            android:layout_marginTop="32dp"/>
+            android:layout_marginTop="32dp"
+            android:textColor="?attr/app_text"/>
 
     <Button
             android:id="@+id/btTime"
@@ -61,27 +68,36 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/tvTime"
             android:layout_marginTop="16dp"
-            android:text="Choose time"/>
+            android:text="@string/choose_time"
+            android:background="?attr/app_button"
+            android:textColor="?attr/app_button_text_color"/>
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            style="?android:attr/buttonBarButtonStyle">
 
         <Button
                 android:id="@+id/btCancel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancel"/>
+                android:text="@string/exit"
+                android:background="?attr/app_button"
+                android:textColor="?attr/app_button_text_color"
+                style="?android:attr/buttonBarButtonStyle"/>
 
         <Button
                 android:id="@+id/btSaveAlarm"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Save alarm"/>
+                android:text="@string/save"
+                android:background="?attr/app_button"
+                android:textColor="?attr/app_button_text_color"
+                style="?android:attr/buttonBarButtonStyle"/>
 
     </LinearLayout>
 
