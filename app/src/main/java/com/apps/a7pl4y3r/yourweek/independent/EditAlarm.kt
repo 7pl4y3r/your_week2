@@ -4,11 +4,11 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.DatePicker
 import android.widget.TimePicker
+import androidx.appcompat.app.AppCompatActivity
 
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Alarm

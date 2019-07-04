@@ -9,7 +9,7 @@
         tools:context="com.apps.a7pl4y3r.yourweek.independent.AddAlarm"
         android:background="?attr/app_background">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarAddAlarm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -12,7 +12,7 @@
         android:textColor="?attr/app_text"
         style="@style/DefDayTv"/>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dayRecyclerView"
         android:orientation="vertical"
         android:layout_width="match_parent"

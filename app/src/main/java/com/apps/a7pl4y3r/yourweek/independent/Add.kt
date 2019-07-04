@@ -2,10 +2,10 @@ package com.apps.a7pl4y3r.yourweek.independent
 
 import android.app.TimePickerDialog
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TimePicker
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Daydb

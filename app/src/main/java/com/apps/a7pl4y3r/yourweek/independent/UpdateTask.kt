@@ -3,13 +3,13 @@ package com.apps.a7pl4y3r.yourweek.independent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.CardView
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Daydb

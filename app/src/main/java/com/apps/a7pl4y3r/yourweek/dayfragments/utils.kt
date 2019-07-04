@@ -2,8 +2,8 @@ package com.apps.a7pl4y3r.yourweek.dayfragments
 
 import android.content.Context
 import android.database.Cursor
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.apps.a7pl4y3r.yourweek.helpers.RecyclerViewAdapter
 import com.example.alin.yourweek.helpers.ItemOfRV
 

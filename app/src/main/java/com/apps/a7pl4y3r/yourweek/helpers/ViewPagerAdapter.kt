@@ -1,13 +1,14 @@
 package com.apps.a7pl4y3r.yourweek.helpers
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 
 import java.util.ArrayList
 
 
-class ViewPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
+class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
 
     private val fragmentList = ArrayList<Fragment>()

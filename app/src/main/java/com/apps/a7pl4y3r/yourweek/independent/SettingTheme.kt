@@ -2,9 +2,9 @@ package com.apps.a7pl4y3r.yourweek.independent
 
 import android.content.Context
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RadioButton
+import androidx.appcompat.app.AppCompatActivity
 
 import com.apps.a7pl4y3r.yourweek.R
 

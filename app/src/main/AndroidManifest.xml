@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
           package="com.apps.a7pl4y3r.yourweek">
 
     <application
@@ -9,6 +9,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+
+        <activity android:name=".independent.Backup">
+        </activity>
         <activity android:name=".independent.AddAlarm">
         </activity>
         <activity android:name=".independent.Alarms">
@@ -25,10 +28,7 @@
         <activity
                 android:name=".independent.MainActivity"
                 android:screenOrientation="portrait"/>
-        <activity
-                android:name=".independent.About"
-                android:parentActivityName=".independent.MainActivity"
-                android:screenOrientation="portrait"/>
+
         <activity
                 android:name=".independent.Add"
                 android:parentActivityName=".independent.MainActivity"
@@ -41,9 +41,7 @@
                 android:name=".independent.UpdateTask"
                 android:parentActivityName=".independent.MainActivity"
                 android:screenOrientation="portrait"/>
-        <activity
-                android:name=".independent.ThemeSwitcher"
-                android:screenOrientation="portrait"/>
+
         <activity
                 android:name=".independent.EditTask"
                 android:screenOrientation="portrait"/>
@@ -51,27 +49,14 @@
                 android:name=".independent.SettingTheme"
                 android:screenOrientation="portrait">
         </activity>
-        <activity
-                android:name=".independent.SettingDays"
-                android:screenOrientation="portrait">
-        </activity>
-        <activity
-                android:name=".independent.SettingDate"
-                android:screenOrientation="portrait">
-        </activity>
-        <activity
-                android:name=".independent.SettingHour"
-                android:screenOrientation="portrait">
-        </activity>
+
         <activity
                 android:name=".independent.SettingsFormats"
                 android:screenOrientation="portrait">
         </activity>
-
         <activity android:name=".independent.EditAlarm"/>
 
         <receiver android:name=".helpers.AlertReceiver"/>
-
     </application>
 
 </manifest>

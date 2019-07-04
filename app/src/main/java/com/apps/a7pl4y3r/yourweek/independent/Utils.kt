@@ -6,8 +6,8 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.support.annotation.RequiresApi
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.helpers.AlertReceiver
 import java.util.*

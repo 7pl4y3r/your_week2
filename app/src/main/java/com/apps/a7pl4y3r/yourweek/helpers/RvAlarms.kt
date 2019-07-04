@@ -2,11 +2,11 @@ package com.apps.a7pl4y3r.yourweek.helpers
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Alarm
 import com.apps.a7pl4y3r.yourweek.independent.getMonthNameById

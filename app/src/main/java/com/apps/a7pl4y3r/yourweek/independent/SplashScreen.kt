@@ -2,8 +2,8 @@ package com.apps.a7pl4y3r.yourweek.independent
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 import com.apps.a7pl4y3r.yourweek.R
 
