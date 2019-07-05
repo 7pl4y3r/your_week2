@@ -2,6 +2,7 @@ package com.apps.a7pl4y3r.yourweek.independent
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Day
@@ -11,6 +12,7 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 //import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_backup.*
+import kotlin.collections.ArrayList
 
 
 class Backup : AppCompatActivity() {
@@ -20,11 +22,7 @@ class Backup : AppCompatActivity() {
     private val taskCollectionName = "Tasks"
 
     private val KEY_DAY = "Day"
-    private val KEY_START_HOUR = "StartHour"
-    private val KEY_START_MINUTE = "StartMinute"
-    private val KEY_END_HOUR = "EndHour"
-    private val KEY_END_MINUTE = "EndMinute"
-    private val KEY_NAME = "Name"
+    private val TAG = "Backup.kt"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,19 +42,39 @@ class Backup : AppCompatActivity() {
 
         }
 
+        btBackupAlarms.setOnClickListener {
+
+            fireDb.collection(taskCollectionName).get()
+                .addOnSuccessListener {
+
+                    for (documentSnapShot in it) {
+
+                        val day = documentSnapShot.toObject(Day::class.java)
+                        Log.d(TAG, "${day.dayName} -> {\n")
+                        for (element in day.tasks)
+                            Log.d(TAG, "${element.task} -> ${element.startHour}:${element.startMinute} --- ${element.endHour}:${element.endMinute}\n")
+
+                        Log.d(TAG, "}\n")
+
+                    }
+
+                }
+
+        }
+
     }
 
 
-    private fun getDayTasks(dayName: String): ArrayList<Task> {
+    private fun getDayTasks(dayName: String): ArrayList<Task>? {
 
-        val list = ArrayList<Task>()
+        val list: ArrayList<Task>?
         val res = Daydb(this, dayName).getData()
 
-        if (res.count == 0) {
-            list.add(Task("", "", "", "", ""))
-            return list
-        }
+        if (res.count == 0)
+            return null
 
+
+        list = ArrayList()
         res.moveToFirst()
         do {
 
@@ -68,14 +86,9 @@ class Backup : AppCompatActivity() {
     }
 
 
-    private fun uploadDay(dayName: String, list: ArrayList<Task>) {
+    private fun uploadDay(dayName: String, list: ArrayList<Task>?) {
 
-        if (list.size > 0) {
-
-            val map = HashMap<String, ArrayList<Task>>()
-            map[KEY_DAY] = list
-
-            fireDb.collection(taskCollectionName).document(dayName).set(map)
+            fireDb.collection(taskCollectionName).document(dayName).set(Day(dayName, list))
                 .addOnSuccessListener {
                     toastMessage(this, "Tasks uploaded!", false)
                 }
@@ -83,7 +96,6 @@ class Backup : AppCompatActivity() {
                     toastMessage(this, "Fail!", false)
                 }
 
-        }
     }
 
 }
