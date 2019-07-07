@@ -3,6 +3,7 @@ package com.apps.a7pl4y3r.yourweek.independent
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -34,6 +35,17 @@ class EditAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimeP
         setCalendar()
         setUiData()
         setSupportActionBar(toolbarAddAlarm)
+        toolbarAddAlarm.title = "Update alarm"
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            val roundBackground = getButtonDrawable(this)
+            btDate.background = roundBackground
+            btTime.background = roundBackground
+            btCancel.background = roundBackground
+            btSaveAlarm.background = roundBackground
+
+        }
 
         btDate.setOnClickListener {
             DatePickerFragment().show(supportFragmentManager, "DatePicker")

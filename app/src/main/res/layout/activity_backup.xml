@@ -6,19 +6,69 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.apps.a7pl4y3r.yourweek.independent.Backup">
+        tools:context="com.apps.a7pl4y3r.yourweek.independent.Backup"
+        android:background="?attr/app_background">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Export - get data on personal cloud"
+            android:textSize="24sp"
+            android:textColor="?attr/app_text"
+            android:layout_marginTop="64dp"/>
 
     <Button
             android:id="@+id/btBackupTasks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/backup_tasks"
-            android:layout_marginTop="128dp"/>
+            android:background="?attr/app_button"
+            android:textColor="?attr/app_button_text_color"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"/>
 
     <Button
             android:id="@+id/btBackupAlarms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/app_button"
+            android:textColor="?attr/app_button_text_color"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
             android:text="@string/backup_alarms"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Import - fetch data from the personal cloud"
+            android:textColor="?attr/app_text"
+            android:textSize="24sp"
+            android:layout_marginTop="64dp"/>
+
+    <Button
+            android:id="@+id/btImportTasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Import Tasks"
+            android:background="?attr/app_button"
+            android:textColor="?attr/app_button_text_color"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"/>
+
+    <Button
+            android:id="@+id/btImportAlarms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/app_button"
+            android:textColor="?attr/app_button_text_color"
+            android:text="Import Alarms"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"/>
 
 </LinearLayout>

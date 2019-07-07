@@ -25,6 +25,7 @@ class Settings : AppCompatActivity() {
             val roundBackground = getButtonDrawable(this)
             btSettingsTheme.background = roundBackground
             btSettingsFormats.background = roundBackground
+            btSettingsBackup.background = roundBackground
 
         }
 
