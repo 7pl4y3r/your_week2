@@ -90,7 +90,6 @@ fun startAlarm(context: Context, id: Int, name: String, calendar: Calendar) {
 
     val pendingIntent = PendingIntent.getBroadcast(context, id, intent, 0)
 
-
     if (calendar.before(Calendar.getInstance()))
         calendar.add(Calendar.DATE, 1)
 

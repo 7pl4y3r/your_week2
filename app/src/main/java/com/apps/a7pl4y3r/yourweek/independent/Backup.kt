@@ -12,6 +12,7 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 //import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_backup.*
+import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.round
 
@@ -83,24 +84,40 @@ class Backup : AppCompatActivity() {
                     for (documentSnapShot in it) {
 
                         val day = documentSnapShot.toObject(Day::class.java)
-                        deleteDay(day.dayName)
-                        downLoadDay(day.dayName, day.tasks)
+
+                        if (day.tasks != null) {
+                            deleteDay(day.dayName)
+                            downLoadDay(day.dayName, day.tasks)
+                        }
 
                     }
 
+                    toastMessage(this, "Tasks downloaded!", false)
+                }
+                .addOnFailureListener {
+                    toastMessage(this, it.toString(), false)
                 }
 
         }
 
         btImportAlarms.setOnClickListener {
 
-            deleteAlarms()
             fireDb.collection(alarmCollectionName).get()
                 .addOnSuccessListener {
 
-                    for (query in it)
-                        downloadAlarm(query.toObject(Alarm::class.java))
+                    val alarmDb = AlarmDb(this)
+                    deleteAlarms(alarmDb)
 
+                    for (query in it)
+                        alarmDb.insertAlarm(query.toObject(Alarm::class.java))
+
+                    startAlarms(alarmDb.getAlarms())
+
+                    alarmDb.close()
+                    toastMessage(this, "Alarms downloaded!", false)
+                }
+                .addOnFailureListener {
+                    toastMessage(this, it.toString(), false)
                 }
         }
 
@@ -180,9 +197,8 @@ class Backup : AppCompatActivity() {
     }
 
 
-    private fun deleteAlarms() {
+    private fun deleteAlarms(alarmDb: AlarmDb) {
 
-        val alarmDb = AlarmDb(this)
         val res = alarmDb.getAlarms()
 
         if (res.count > 0) {
@@ -199,8 +215,23 @@ class Backup : AppCompatActivity() {
     }
 
 
-    private fun downloadAlarm(alarm: Alarm) {
-        AlarmDb(this).insertAlarm(alarm)
+    private fun startAlarms(res: Cursor) {
+
+        var calendar: Calendar
+        res.moveToFirst()
+        do {
+
+            calendar = Calendar.getInstance()
+            calendar.set(Calendar.DAY_OF_MONTH, res.getInt(2))
+            calendar.set(Calendar.MONTH, res.getInt(3))
+            calendar.set(Calendar.YEAR, res.getInt(4))
+            calendar.set(Calendar.HOUR_OF_DAY, res.getInt(5))
+            calendar.set(Calendar.MINUTE, res.getInt(6))
+
+            startAlarm(this, res.getInt(0), res.getString(1), calendar)
+
+        } while (res.moveToNext())
+
     }
 
 }
